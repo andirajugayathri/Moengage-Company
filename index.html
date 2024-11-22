@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP Status Dogs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="auth-container" id="signupContainer">
+        <div class="auth-form">
+            <h2>Create Account</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupUsername">Username</label>
+                    <input type="text" id="signupUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+                <button type="submit">Sign Up</button>
+                <div id="signupMessage"></div>
+                <div class="switch-form">
+                    Already have an account? <a href="#" id="switchToSignin">Sign In</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="auth-container" id="signinContainer" style="display: none;">
+        <div class="auth-form">
+            <h2>Sign In</h2>
+            <form id="signinForm">
+                <div class="form-group">
+                    <label for="signinEmail">Email</label>
+                    <input type="email" id="signinEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signinPassword">Password</label>
+                    <input type="password" id="signinPassword" required>
+                </div>
+                <button type="submit">Sign In</button>
+                <div id="signinMessage"></div>
+                <div class="switch-form">
+                    Don't have an account? <a href="#" id="switchToSignup">Sign Up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="landing-page" id="landingPage">
+        <nav class="navbar">
+            <div class="navbar-content">
+                <div class="navbar-brand">HTTP Status Dogs</div>
+                <div class="nav-items">
+                    <button id="savedFiltersBtn" class="nav-btn">Saved Filters</button>
+                    <button id="logoutBtn" class="nav-btn">Logout</button>
+                </div>
+            </div>
+        </nav>
+    
+        <main class="main-content">
+            <!-- Add search section -->
+            <div class="search-section">
+                <div class="search-container">
+                    <div class="filter-group">
+                        <input type="text" id="searchInput" placeholder="Search by status code or message..." class="search-input">
+                        <select id="statusFilter" class="filter-select">
+                            <option value="all">All Status Codes</option>
+                            <option value="1xx">1xx - Informational</option>
+                            <option value="2xx">2xx - Success</option>
+                            <option value="3xx">3xx - Redirection</option>
+                            <option value="4xx">4xx - Client Error</option>
+                            <option value="5xx">5xx - Server Error</option>
+                        </select>
+                        <button id="saveFilterBtn" class="save-btn">Save Filter</button>
+                    </div>
+                    <div id="activeFilter" class="active-filter"></div>
+                </div>
+            </div>
+    
+            <!-- Status grid remains the same -->
+            <div class="status-grid" id="statusGrid"></div>
+    
+            <!-- Add saved filters modal -->
+            <div id="savedFiltersModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Saved Filters</h2>
+                    <div id="savedFiltersList"></div>
+                </div>
+            </div>
+        </main>
+    
+        <footer class="footer">
+            <p>HTTP Status Dogs - A fun way to learn about HTTP status codes</p>
+            <p>Data sourced from http.dog</p>
+        </footer>
+    </div>
+
+
+    <script src="./script.js"></script>
+
+
+</body>
+</html>
